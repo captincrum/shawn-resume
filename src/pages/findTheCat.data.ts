@@ -17,8 +17,12 @@ export const DIFFICULTIES = {
 export type Difficulty = keyof typeof DIFFICULTIES;
 
 export interface Exchange {
-  question: string;
-  answer: string;
+  question?: string;
+  answer?: string;
+  // Guess entries log the player's guess + verdict so they show inline with the chat.
+  // No question/answer fields → the server's history/transcript builders skip them.
+  guess?: string;
+  verdict?: 'right' | 'wrong';
 }
 
 export interface Game {
@@ -96,10 +100,12 @@ export async function submitGuess(game: Game, guess: string): Promise<Game> {
     token: game.token,
     guess,
   });
+  const guessEntry: Exchange = { guess, verdict: d.correct ? 'right' : 'wrong' };
   const afterGuess: Game = {
     ...game,
     asked: game.asked + 1,
     tokensUsed: game.tokensUsed + usageTotal(d.usage),
+    log: [...game.log, guessEntry],
   };
   if (d.correct) return reveal(afterGuess, true);
   return { ...afterGuess, guesses: [...game.guesses, guess], lastGuessWrong: true };

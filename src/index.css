@@ -974,6 +974,18 @@ ul {
   font-size: 0.92rem;
 }
 
+.ftc-guess--wrong {
+  background: var(--text-muted);
+}
+
+.ftc-guess--right {
+  background: var(--accent-deep);
+}
+
+[data-theme='dark'] .ftc-guess--right {
+  background: var(--accent);
+}
+
 .ftc-thinking {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;

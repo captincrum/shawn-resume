@@ -21,9 +21,12 @@ const estChars = (s: string) => Math.ceil(s.length / 4);
 const SYSTEM_PROMPT_EST = 220; // gatekeeper/interviewer system prompt
 const ANSWER_EST = 140; // model reply, capped server-side at 160
 
-function estTurnCost(question: string, log: { question: string; answer: string }[]) {
+function estTurnCost(
+  question: string,
+  log: { question?: string; answer?: string }[]
+) {
   const history = log.reduce(
-    (sum, x) => sum + estChars(x.question) + estChars(x.answer),
+    (sum, x) => sum + estChars(x.question ?? '') + estChars(x.answer ?? ''),
     0
   );
   return SYSTEM_PROMPT_EST + history + estChars(question) + ANSWER_EST;
@@ -154,8 +157,14 @@ export function FindTheCat() {
             <div className="ftc-log">
               {game.log.map((x, i) => (
                 <div className="ftc-exchange" key={i}>
-                  <p className="ftc-q">{x.question}</p>
-                  <p className="ftc-a">{x.answer}</p>
+                  {x.guess ? (
+                    <p className={`ftc-q ftc-guess ftc-guess--${x.verdict}`}>{x.guess}</p>
+                  ) : (
+                    <>
+                      <p className="ftc-q">{x.question}</p>
+                      <p className="ftc-a">{x.answer}</p>
+                    </>
+                  )}
                 </div>
               ))}
             </div>
