@@ -1037,6 +1037,15 @@ ul {
   line-height: 1.6;
 }
 
+.ftc-result__stats {
+  margin: 0.85rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
 .ftc-error {
   margin: 0 0 1rem;
   padding: 0.6rem 0.85rem;

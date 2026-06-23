@@ -177,6 +177,9 @@ export function FindTheCat() {
               </p>
               {game.solution && <p className="ftc-result__solution">{game.solution}</p>}
               {game.explanation && <p className="ftc-result__solution">{game.explanation}</p>}
+              <p className="ftc-result__stats">
+                {game.asked} turn{game.asked !== 1 ? 's' : ''} · {game.tokensUsed.toLocaleString()} token{game.tokensUsed !== 1 ? 's' : ''}
+              </p>
             </div>
           )}
 
