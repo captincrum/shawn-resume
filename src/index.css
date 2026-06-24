@@ -411,6 +411,8 @@ ul {
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -458,6 +460,32 @@ ul {
   background-color: var(--accent);
   -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2021.32'%3E%3Cpath%20d='M2%2010.66%20L7%202%20L17%202%20L22%2010.66%20L17%2019.32%20L7%2019.32%20Z'%20fill='none'%20stroke='%23000'%20stroke-width='2.4'/%3E%3C/svg%3E") center / contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2021.32'%3E%3Cpath%20d='M2%2010.66%20L7%202%20L17%202%20L22%2010.66%20L17%2019.32%20L7%2019.32%20Z'%20fill='none'%20stroke='%23000'%20stroke-width='2.4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.project__link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.project__link:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 /* ---------- Skills + certs ---------- */
@@ -809,6 +837,8 @@ ul {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.78rem;
   color: var(--text-muted);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .game__setting select {
@@ -820,6 +850,8 @@ ul {
   background: var(--bg);
   color: var(--text);
   cursor: pointer;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .game__setting--check {

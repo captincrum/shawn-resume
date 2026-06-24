@@ -20,6 +20,7 @@ export interface Project {
   name: string;
   tagline: string;
   bullets: string[];
+  links?: { label: string; href: string }[];
 }
 
 export interface Achievement {
@@ -92,10 +93,27 @@ export const projects: Project[] = [
   {
     name: 'FlickFix',
     tagline: 'Automated Media Library Manager',
+    links: [
+      { label: 'Source', href: 'https://github.com/captincrum/flick-fix' },
+    ],
     bullets: [
       'Built a comprehensive test suite (175 unit + 188 Playwright UI tests) with CI/CD validation on every push, keeping each component stable as the system evolves. PowerShell core with a browser-based GUI.',
       'Built a self-correcting repair engine that validates each fix and tunes its own encoding settings based on measured quality loss — larger corrections when far from target, smaller as it converges.',
       'Re-engineered the live log viewer: a full-file render froze the UI once the log (rewritten 4×/sec) passed 1MB, so I built a virtualized view rendering 500 rows with stable scroll, a jump-to-live control, and instant full-file search/filter.',
+      'GPU-accelerated x265 compression with auto-detection of NVIDIA NVENC, AMD AMF, and Intel QSV. Probes the library with sample encodes to predict space savings before committing, then surfaces an interactive review tree with confidence scoring so the user can filter and cap which runs actually execute.',
+    ],
+  },
+  {
+    name: 'Find the Cat',
+    tagline: 'AI-powered deduction game (shipped, runs on this site)',
+    links: [
+      { label: 'Play it', href: '/games/find-the-cat' },
+    ],
+    bullets: [
+      'Built end-to-end on Anthropic\'s Claude API with a Netlify Functions backend — players ask questions and a Claude-powered gatekeeper drops hints without giving away the answer.',
+      'Designed an encrypted-token architecture (AES-256-GCM) so the solution never reaches the browser — the answer rides through the client as ciphertext, making devtools cheats impossible while keeping the backend stateless.',
+      'Built a per-game token budget that meters real LLM spend, surfaces live cost to the player, and gates further questions when the budget runs out — cost-conscious engineering, not just an API call.',
+      'Nightmare mode goes further: Claude generates a 15-30 line code snippet with one realistic production bug embedded, then plays interviewer while the player diagnoses it — a small showcase of prompt engineering and LLM orchestration.',
     ],
   },
   {
@@ -110,16 +128,24 @@ export const projects: Project[] = [
   {
     name: 'Full-Stack Web Development',
     tagline: 'Client sites, end to end',
+    links: [
+      { label: 'This site (source)', href: 'https://github.com/captincrum/shawn-resume' },
+      { label: 'Wedding site', href: 'https://rachelandshawn.netlify.app' },
+    ],
     bullets: [
-      'Designed and deployed 15+ client websites (React, Python, HTML/CSS). Built custom backends and drove client acquisition through SEO.',
+      '15+ client sites delivered end to end: design, build, deploy, content, and SEO — picking the stack that fits each client rather than forcing one in.',
+      'Comfortable across the stack: React/TypeScript for interactive apps, WordPress for content-heavy sites, Python (Flask) for custom backends, and plain HTML/CSS when that\'s the right tool.',
+      'This résumé site is itself a portfolio piece: React + TypeScript + Vite with a custom design system (theme tokens, dark mode, animated hexagon watermark), React Router, and a Netlify Functions backend powering the Find the Cat game.',
+      'Drove client acquisition through SEO — keyword strategy, schema markup, and performance tuning measurable in search rankings, not just vibes.',
     ],
   },
   {
-    name: 'Financial Tracking System',
-    tagline: 'Spreadsheet automation',
+    name: 'Data Automation Systems',
+    tagline: 'Real-world workflows reduced to a click',
     bullets: [
-      'Therapy-practice tracker with dynamic Excel formulas, pivot tables, and automated reporting insights.',
-      'Personal finance system that auto-populates categories from a bank statement, eliminating manual data entry (90%+ time savings).',
+      'Appointment conflict detection: dynamic scheduling system that enforces real-time conflict detection across recurring and one-off appointments using formula-driven availability masks, auto-surfaces conflicts, and eliminates double-booking — converting a manual spreadsheet into a self-validating operational tool.',
+      'Personal finance automation: multi-source expense tracker that auto-ingests bank transactions, applies intelligent categorization via regex pattern matching and lookup tables, and surfaces real-time dashboards with month-over-month spending analysis — eliminating 90%+ of manual data entry.',
+      'Healthcare claims manager: self-maintaining HSA reconciliation engine that cross-references claim dates, provider names, and payment methods against documentation status, auto-flags reimbursement mismatches, and generates year-end tax-ready summaries — reducing compliance review time from hours to minutes.',
     ],
   },
 ];

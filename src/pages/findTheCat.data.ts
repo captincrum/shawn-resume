@@ -8,10 +8,10 @@ const ENDPOINT = '/.netlify/functions/ftc';
 // Difficulty now changes the PUZZLE and the AI's willingness — not the
 // question count. `label` is shown in the dropdown.
 export const DIFFICULTIES = {
-  Easy: { label: 'Everyday Mystery' },
-  Medium: { label: 'Lateral Puzzle' },
-  Hard: { label: 'Real-World Investigation' },
-  Nightmare: { label: 'Code-review Interview' },
+  Easy: { label: 'Lost & Found ' },
+  Medium: { label: 'Brain Teaser ' },
+  Hard: { label: 'Cold Case' },
+  Nightmare: { label: 'Bug Hunt' },
 } as const;
 
 export type Difficulty = keyof typeof DIFFICULTIES;

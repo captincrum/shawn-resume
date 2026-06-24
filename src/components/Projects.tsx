@@ -20,6 +20,21 @@ export function Projects() {
                 <li key={i}>{b}</li>
               ))}
             </ul>
+            {p.links && p.links.length > 0 && (
+              <div className="project__links">
+                {p.links.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project__link"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </article>
         ))}
       </div>
