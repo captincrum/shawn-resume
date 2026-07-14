@@ -1,6 +1,6 @@
-import { achievements } from '../data/resume';
+import type { Achievement } from '../data/resume';
 
-export function Achievements() {
+export function Achievements({ items }: { items: Achievement[] }) {
   return (
     <section className="section" id="achievements">
       <div className="section__head">
@@ -9,7 +9,7 @@ export function Achievements() {
       </div>
 
       <div className="achievements">
-        {achievements.map((a) => (
+        {items.map((a) => (
           <article className="achievement" key={a.title}>
             <p className="achievement__metric">{a.metric}</p>
             <h3 className="achievement__title">{a.title}</h3>

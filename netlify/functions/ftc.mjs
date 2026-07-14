@@ -48,7 +48,7 @@ const DIFFICULTY = {
   },
   Medium: {
     theme:
-      'a reasoning puzzle or riddle that makes the player connect several clues — a lock combination, a coded message, a "how did they do it".',
+      'a numeric logic brain-teaser: the player must find one specific hidden number (a room, locker, safe combo, seat, etc.) that satisfies a short list of overlapping constraints on its digits — e.g. excluded digits, a digit sum, primality, or "the reversed digits also appear on the list/chart." Present the constraints as a short numbered list of clues (3-5 of them) rather than a narrative riddle, the way a classic logic-grid puzzle book would.',
     reluctance:
       'Be moderately cagey. Give real information only for specific, on-point questions; nudge vague ones to be sharper.',
     insults:

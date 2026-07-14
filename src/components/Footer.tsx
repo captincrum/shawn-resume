@@ -1,10 +1,10 @@
-import { profile, contacts } from '../data/resume';
+import { person, contacts } from '../data/resume';
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="footer">
-      <p className="footer__name">{profile.name}</p>
+      <p className="footer__name">{person.name}</p>
       <nav className="footer__links" aria-label="Footer">
         {contacts.map((c) => (
           <a

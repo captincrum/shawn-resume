@@ -1,6 +1,7 @@
-import { skills, certifications } from '../data/resume';
+import { certifications } from '../data/resume';
+import type { SkillGroup } from '../data/resume';
 
-export function Skills() {
+export function Skills({ groups }: { groups: SkillGroup[] }) {
   return (
     <section className="section" id="skills">
       <div className="section__head">
@@ -9,7 +10,7 @@ export function Skills() {
       </div>
 
       <div className="skills">
-        {skills.map((group) => (
+        {groups.map((group) => (
           <div className="skill-group" key={group.category}>
             <h3 className="skill-group__title">{group.category}</h3>
             <ul className="skill-group__tags">

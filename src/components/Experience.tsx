@@ -1,6 +1,6 @@
-import { experience } from '../data/resume';
+import type { Role } from '../data/resume';
 
-export function Experience() {
+export function Experience({ roles }: { roles: Role[] }) {
   return (
     <section className="section" id="experience">
       <div className="section__head">
@@ -9,7 +9,7 @@ export function Experience() {
       </div>
 
       <div className="roles">
-        {experience.map((role) => (
+        {roles.map((role) => (
           <article className="role" key={role.title + role.period}>
             <div className="role__meta">
               <h3 className="role__title">

@@ -1,6 +1,6 @@
-import { projects } from '../data/resume';
+import type { Project } from '../data/resume';
 
-export function Projects() {
+export function Projects({ items }: { items: Project[] }) {
   return (
     <section className="section" id="projects">
       <div className="section__head">
@@ -9,7 +9,7 @@ export function Projects() {
       </div>
 
       <div className="projects">
-        {projects.map((p) => (
+        {items.map((p) => (
           <article className="project" key={p.name}>
             <header className="project__head">
               <h3 className="project__name">{p.name}</h3>

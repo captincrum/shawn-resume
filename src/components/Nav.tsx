@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
 import type { Theme } from '../hooks/useTheme';
-import { profile } from '../data/resume';
+import { person } from '../data/resume';
 
 interface Props {
   theme: Theme;
@@ -25,7 +25,7 @@ export function Nav({ theme, onToggle }: Props) {
     <nav className="nav" aria-label="Primary">
       <div className="nav__inner">
         <NavLink to="/" className="nav__brand">
-          {profile.name}
+          {person.name}
         </NavLink>
 
         <div className="nav__right">

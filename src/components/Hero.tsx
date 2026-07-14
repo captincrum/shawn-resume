@@ -1,15 +1,16 @@
-import { profile, contacts } from '../data/resume';
+import { person, contacts } from '../data/resume';
+import type { ResumeProfile } from '../data/resume';
 
-export function Hero() {
+export function Hero({ profile }: { profile: ResumeProfile }) {
   return (
     <header className="hero">
       <div className="hero__topbar">
-        <span className="hero__location">{profile.location}</span>
+        <span className="hero__location">{person.location}</span>
       </div>
 
       <div className="hero__main">
         <p className="hero__eyebrow">Building systems that work at scale</p>
-        <h1 className="hero__name">{profile.name}</h1>
+        <h1 className="hero__name">{person.name}</h1>
         <p className="hero__title">{profile.title}</p>
         <p className="hero__summary">{profile.summary}</p>
 
