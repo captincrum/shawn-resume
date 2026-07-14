@@ -18,10 +18,16 @@ export interface Role {
   bullets: string[];
 }
 
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
 export interface Project {
   name: string;
   tagline: string;
   bullets: string[];
+  links?: ProjectLink[];
 }
 
 export interface Achievement {
@@ -271,6 +277,11 @@ const engineeringProjects: Project[] = [
     bullets: [
       'Designed and deployed 15+ client websites (React, Python, HTML/CSS), including this résumé site, an in-progress site for a counseling practice, and a wedding website built for my own wedding.',
       'Built custom backends and drove client acquisition through SEO.',
+    ],
+    links: [
+      { label: 'This résumé site', href: 'https://shawn-mccrum.dev/' },
+      { label: 'Counseling site (in progress)', href: 'https://mccrumcounseling.com/' },
+      { label: 'Wedding site', href: 'https://rachelandshawn.netlify.app/' },
     ],
   },
   {
